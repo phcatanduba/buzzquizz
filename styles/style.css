@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #e5e5e5;
+    background-color: #FAFAFA;
 }
 
 header {
@@ -16,6 +16,7 @@ header {
     font-weight: 700;
     position: fixed;
     top: 0;
+    z-index: 100;
 }
 
 main {
@@ -73,7 +74,6 @@ main {
 .novo-quizz .inputs{
     background-color: #fff;
     width: 100vw;
-    height: 256px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -92,7 +92,7 @@ main {
     font-size:19px;
 
 }
-.proximaTela{
+.proxima-tela{
     width: 323px;
     height: 54px;
     background-color: #EC362D;
@@ -107,7 +107,67 @@ main {
 .perguntas{
     background-color: #fff;
     padding-bottom: 20px ;
+    width: 100vw;
 }
 .esconder{
     display: none;
 }
+p {
+    margin-top: 35px;
+    font-weight: bold;
+    font-size: 20px;
+    width: 100%;
+    margin-left: 15vw;
+
+}
+
+li {
+    position: relative;
+    width: 340px;
+    height: 181px;
+    margin-top: 14px;
+    cursor: pointer;
+}
+
+.degrade {
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+li img {
+    width: 340px;
+    height: 181px;
+}
+
+li span {
+    color: white;
+    position: absolute;
+    font-size: 19px;
+    bottom: 20px;
+    left: 10px;
+}
+
+@media (min-width: 1100px) {
+    .criar-quizz {
+        width: 70vw;
+        height: 181px;
+    }
+
+    .quizzes {
+        width: 70vw;
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    li {
+        margin: 12px;
+        margin-left: 0px;
+    }
+}
+

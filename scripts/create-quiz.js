@@ -4,11 +4,11 @@ function criarQuizz(){
     novaTela.classList.remove("esconder");
     telaAntiga.classList.add("esconder");
 }
-function criarNiveis() {
+function criarPerguntas() {
     const novaTela = document.querySelector(".novo-quizz");
     novaTela.innerHTML = `
             <h1>Crie suas perguntas</h1>
-            <div class="perguntas">
+            <div class="inputs">
             <p>Pergunta 1</p>
             <input type="text" placeholder="Texto da pergunta">
             <input type="text" placeholder="Cor de fundo da pergunta">
@@ -23,7 +23,36 @@ function criarNiveis() {
             <input type="text" placeholder="Resposta incorreta 3">
             <input type="text" placeholder="URL da imagem 3">
             </div>
-        <div class="proximaTela">Prosseguir pra criar níveis</div>
+        <div class="proxima-tela" onclick="criarNiveis()">Prosseguir pra criar níveis</div>
+    `
+
+}
+function criarNiveis(){
+    const novaTela = document.querySelector(".novo-quizz");
+    novaTela.innerHTML = `
+        <h1>Agora, decida os níveis!</h1>
+        <div class="inputs">
+        <p>Nível 1</p>
+        <input type="text" placeholder="Título do nível">
+        <input type="text" placeholder="% de acerto mínima">
+        <input type="text" placeholder="URL da imagem do nível">
+        <input type="text" placeholder="Descrição do nível">
+        </div>
+    <div class="proxima-tela" onclick="finalizarQuizz()">Finalizar Quizz</div>
+    `
+}
+function finalizarQuizz(){
+    const novaTela = document.querySelector(".novo-quizz");
+    novaTela.innerHTML = `
+        <h1>Agora, decida os níveis!</h1>
+        <div class="inputs">
+        <p>Nível 1</p>
+        <input type="text" placeholder="Título do nível">
+        <input type="text" placeholder="% de acerto mínima">
+        <input type="text" placeholder="URL da imagem do nível">
+        <input type="text" placeholder="Descrição do nível">
+        </div>
+    <div class="proxima-tela">Finalizar Quizz</div>
     `
 
 }

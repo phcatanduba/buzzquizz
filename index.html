@@ -17,7 +17,6 @@
         <div class="criar-quizz">
             <div>Você não criou nenhum quizz ainda :(</div>
             <div onclick="criarQuizz()">Criar-quizz</div>
-            
         </div>
         <div class="novo-quizz esconder">
             <h1>Comece pelo começo</h1>
@@ -27,17 +26,16 @@
                 <input type="text" placeholder="Quantidade de perguntas do quizz">
                 <input type="text" placeholder="Quantidade de níveis do quizz">
             </div>
-            <div class="proximaTela" onclick="criarNiveis()">Prosseguir pra criar perguntas</div>
+            <div class="proxima-tela" onclick="criarPerguntas()">Prosseguir pra criar perguntas</div>
         </div>
         
         <div class="quizzes">
             <p>Todos os Quizzes</p>
             <ul>
-                <li>
-                </li>
             </ul>
         </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src ="scripts/create-quiz.js"></script>
     <script src="scripts/feed.js"></script>
     <script src="scripts/quiz.js"></script>
