@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #e5e5e5;
+    background-color: #FAFAFA;
 }
 
 header {
@@ -16,6 +16,7 @@ header {
     font-weight: 700;
     position: fixed;
     top: 0;
+    z-index: 100;
 }
 
 main {
@@ -105,11 +106,18 @@ main {
     display: none;
 }
 
+p {
+    margin-top: 35px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 li {
     position: relative;
     width: 340px;
     height: 181px;
     margin-top: 14px;
+    cursor: pointer;
 }
 
 .degrade {
@@ -130,4 +138,26 @@ li span {
     font-size: 19px;
     bottom: 20px;
     left: 10px;
+}
+
+@media (min-width: 1100px) {
+    .criar-quizz {
+        width: 70vw;
+        height: 181px;
+    }
+
+    .quizzes {
+        width: 70vw;
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    li {
+        margin: 12px;
+        margin-left: 0px;
+    }
 }
