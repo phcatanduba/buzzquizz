@@ -27,9 +27,76 @@ function acessarQuiz(event) {
     conteudo.innerHTML = `  <div class="topo-quiz" style="background: url(${quizEscolhido.image})">
                                 <div class="degrade"></div>
                                 <span>${quizEscolhido.title}</span>
-                            </div>
-                            <div class="titulo pergunta1" style="background-color: ${quizEscolhido.questions[0].color}">
-                                <span>${quizEscolhido.questions[0].title}</span>
-                            </div>
-                            `;
+                            </div>`;
+
+    for(let i = 0; i < quizEscolhido.questions.length; i ++) {
+            if(quizEscolhido.questions[i].answers.length === 4) {
+                conteudo.innerHTML += ` <div class="quiz">
+                <div class="titulo pergunta1" style="background-color: ${quizEscolhido.questions[i].color}">
+                    <span>${quizEscolhido.questions[i].title}</span>
+                </div>
+                <div class="respostas">
+                    <div>
+                        <span class="resposta">
+                            <img src=${quizEscolhido.questions[i].answers[0].image}>
+                            <p>${quizEscolhido.questions[i].answers[0].text}</p>
+                        </span>
+                        <span class="resposta">
+                            <img src=${quizEscolhido.questions[i].answers[1].image}>
+                            <p>${quizEscolhido.questions[i].answers[1].text}</p>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="resposta">
+                            <img src=${quizEscolhido.questions[i].answers[2].image}>
+                            <p>${quizEscolhido.questions[i].answers[2].text}</p>
+                        </span>
+                        <span class="resposta">
+                            <img src=${quizEscolhido.questions[i].answers[3].image}>
+                            <p>${quizEscolhido.questions[i].answers[3].text}</p>
+                        </span>
+                    </div>
+                <div>    `
+            } else if(quizEscolhido.questions[i].answers.length === 3) {
+                conteudo.innerHTML += ` <div class="quiz">
+                <div class="titulo pergunta1" style="background-color: ${quizEscolhido.questions[i].color}">
+                    <span>${quizEscolhido.questions[i].title}</span>
+                </div>
+                <div class="respostas">
+                    <div>
+                        <span class="resposta">
+                            <img src=${quizEscolhido.questions[i].answers[0].image}>
+                            <p>${quizEscolhido.questions[i].answers[0].text}</p>
+                        </span>
+                        <span class="resposta">
+                            <img src=${quizEscolhido.questions[i].answers[1].image}>
+                            <p>${quizEscolhido.questions[i].answers[1].text}</p>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="resposta">
+                            <img src=${quizEscolhido.questions[i].answers[2].image}>
+                            <p>${quizEscolhido.questions[i].answers[2].text}</p>
+                        </span>
+                    </div>
+                <div>    `
+            } else if(quizEscolhido.questions[i].answers.length === 2) {
+                conteudo.innerHTML += ` <div class="quiz">
+                <div class="titulo pergunta1" style="background-color: ${quizEscolhido.questions[i].color}">
+                    <span>${quizEscolhido.questions[i].title}</span>
+                </div>
+                <div class="respostas">
+                    <div>
+                        <span class="resposta">
+                            <img src=${quizEscolhido.questions[i].answers[0].image}>
+                            <p>${quizEscolhido.questions[i].answers[0].text}</p>
+                        </span>
+                        <span class="resposta">
+                            <img src=${quizEscolhido.questions[i].answers[1].image}>
+                            <p>${quizEscolhido.questions[i].answers[1].text}</p>
+                        </span>
+                    </div>
+                <div>    `
+            }
+    }
 };
