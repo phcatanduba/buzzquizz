@@ -24,9 +24,8 @@ function carregarQuizes(resposta) {
 function acessarQuiz(event) {
     let quizId = event.currentTarget.getAttribute("id");
     let quizEscolhido = arrayQuizes.find(quiz => quiz.id == quizId);
-    conteudo.innerHTML = `  <div class="topo-quiz">
+    conteudo.innerHTML = `  <div class="topo-quiz" style="background: url(${quizEscolhido.image})">
                                 <div class="degrade"></div>
-                                <img src=${quizEscolhido.image}>
                                 <span>${quizEscolhido.title}</span>
                             </div>`;
 };
