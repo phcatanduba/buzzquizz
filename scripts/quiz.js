@@ -28,8 +28,8 @@ function acessarQuiz(event) {
                                 <div class="degrade"></div>
                                 <span>${quizEscolhido.title}</span>
                             </div>
-                            <div class="titulo-pergunta1">
-                                ${quizEscolhido.questions[0].title}
+                            <div class="titulo pergunta1" style="background-color: ${quizEscolhido.questions[0].color}">
+                                <span>${quizEscolhido.questions[0].title}</span>
                             </div>
                             `;
 };
