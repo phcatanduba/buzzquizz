@@ -1,5 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #e5e5e5;
 }
 
 header {
@@ -14,8 +15,92 @@ header {
     color: white;
     font-weight: 700;
     position: fixed;
+    top: 0;
 }
 
 main {
     margin-top: 69px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.criar-quizz{
+    margin-top: 30px;
+    width: 340px;
+    height: 181px;
+    border: 1px dashed #D5D5D5;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+}
+.criar-quizz div:first-child{
+    font-size: 20px;
+    color: #b9b9b9;
+    width: 250px;
+    height: 107px;
+    display: flex;
+    align-items: center;
+}
+.criar-quizz div:last-child{
+    font-size: 21px;
+    width: 151px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #EC362D;
+    border: 1px dashed #EC362D;
+    border-radius: 40px;
+
+}
+.novo-quizz{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.novo-quizz p{
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-family:'Roboto';
+    font-weight: 700;
+}
+.novo-quizz .inputs{
+    background-color: #fff;
+    width: 100vw;
+    height: 256px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0 20px 0;
+}
+.novo-quizz input{
+    width: 80%;
+    margin: 5px;
+    padding: 12px 20px;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    font-family:'Roboto',sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size:19px;
+
+}
+.novo-quizz div:last-child{
+    width: 323px;
+    height: 54px;
+    background-color: #EC362D;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.esconder{
+    display: none;
 }
