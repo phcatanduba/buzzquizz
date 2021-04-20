@@ -27,5 +27,9 @@ function acessarQuiz(event) {
     conteudo.innerHTML = `  <div class="topo-quiz" style="background: url(${quizEscolhido.image})">
                                 <div class="degrade"></div>
                                 <span>${quizEscolhido.title}</span>
-                            </div>`;
+                            </div>
+                            <div class="titulo-pergunta1">
+                                ${quizEscolhido.questions[0].title}
+                            </div>
+                            `;
 };

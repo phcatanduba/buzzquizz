@@ -61,7 +61,7 @@ main {
     display: flex;
     flex-direction: column;
 }
-.novo-quizz h1 , p{
+.novo-quizz h1 {
     font-size: 20px;
     margin: 20px 0 20px 10px;
     font-family:'Roboto';
@@ -112,13 +112,12 @@ main {
 .esconder{
     display: none;
 }
+
 p {
     margin-top: 35px;
     font-weight: bold;
     font-size: 20px;
     width: 100%;
-    margin-left: 15vw;
-
 }
 
 li {
@@ -194,13 +193,10 @@ li span{
         margin: 12px;
         margin-left: 0px;
     }
-<<<<<<< HEAD
-}
 
-=======
     .topo-quiz span {
         color: white;
         font-size: 39px;
     }
 }
->>>>>>> b09ee3bae6625b4399447fb686b4b87bcd73739b
+
