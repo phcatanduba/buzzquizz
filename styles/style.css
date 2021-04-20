@@ -104,3 +104,30 @@ main {
 .esconder{
     display: none;
 }
+
+li {
+    position: relative;
+    width: 340px;
+    height: 181px;
+    margin-top: 14px;
+}
+
+.degrade {
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+li img {
+    width: 340px;
+    height: 181px;
+}
+
+li span {
+    color: white;
+    position: absolute;
+    font-size: 19px;
+    bottom: 20px;
+    left: 10px;
+}
