@@ -59,14 +59,17 @@ main {
 .novo-quizz{
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
-.novo-quizz p{
+.novo-quizz h1 , p{
     font-size: 20px;
-    margin-bottom: 30px;
+    margin: 20px 0 20px 10px;
     font-family:'Roboto';
     font-weight: 700;
 }
+.novo-quizz h1{
+    margin: 30px auto 35px auto;
+}
+
 .novo-quizz .inputs{
     background-color: #fff;
     width: 100vw;
@@ -89,7 +92,7 @@ main {
     font-size:19px;
 
 }
-.novo-quizz div:last-child{
+.proximaTela{
     width: 323px;
     height: 54px;
     background-color: #EC362D;
@@ -99,7 +102,11 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin: 30px auto 0 auto;
+}
+.perguntas{
+    background-color: #fff;
+    padding-bottom: 20px ;
 }
 .esconder{
     display: none;
