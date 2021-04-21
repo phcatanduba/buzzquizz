@@ -225,6 +225,18 @@ li span{
     word-break: break-all;
 }
 
+.resposta-certa {
+    color:green;
+}
+
+.resposta-errada {
+    color: red;
+}
+
+.outras-respostas {
+    opacity: 0.2;
+}
+
 @media (min-width: 1100px) {
     .criar-quizz {
         width: 70vw;
