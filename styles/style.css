@@ -173,6 +173,8 @@ li span{
 
 .topo-quiz .degrade {
     height: 181px;
+    min-width: 360px;
+    width: 100%;
     background-image: none;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 0px;
@@ -182,7 +184,7 @@ li span{
     background-color: white;
     margin-top: 42px;
     width: 100%;
-    height: 426px;
+    min-height: 426px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -190,7 +192,7 @@ li span{
 
 .titulo {
     margin-top: 18px;
-    width: 340px;
+    width: 90%;
     height: 89px;
     color: white;
     font-size: 19px;
@@ -205,17 +207,24 @@ li span{
 .titulo span {
     width: 308px;
 }
-.respostas div {
-    display: flex;
+
+.respostas {
+    width: 90%;
 }
 
-.respostas span {
-    margin: 6px;
+.respostas div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resposta {
+    margin-bottom: 5px;
+    width: 49%;
 }
 
 .resposta img {
-    width: 164px;
-    height: 113px;
+    width: 100%;
+    height: 80%;
 }
 
 .resposta p {
@@ -235,6 +244,57 @@ li span{
 
 .outras-respostas {
     opacity: 0.2;
+}
+
+.butoes {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px
+}
+
+.reiniciar {
+    background-color: #EC362D;
+    width: 220px;
+    height: 44px;
+    font-size: 18px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    color: white;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.voltar {
+    color: #BEBEBE;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    margin-bottom: 66px;
+    cursor: pointer;
+}
+
+.resultado {
+    margin-top: 42px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.conteudo-resultado {
+    width: 90%;
+}
+
+.conteudo-resultado img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.texto-resultado {
+    width: 340px;
 }
 
 @media (min-width: 1100px) {
@@ -279,6 +339,27 @@ li span{
     .resposta img {
         width: 330px;
         height: 175px;
+    }
+
+    .resultado {
+        width: 759px;
+        height: 400px;
+    }
+
+    .conteudo-resultado {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .conteudo-resultado img {
+        width: 364px;
+        width: 273px;
+    }
+}
+
+@media (max-width: 340px) {
+    body {
+        width: 360px;
     }
 }
 
