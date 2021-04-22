@@ -112,9 +112,9 @@ function finalizarQuizz() {
             conteudoInputs.levels.push(
                 {
                     title: inputs[j].value,
-                    image: inputs[j + 1].value,
-                    text: inputs[j + 2].value,
-                    minValue: inputs[j + 3].value
+                    minValue: Number(inputs[j + 1].value),
+                    image: inputs[j + 2].value,
+                    text: inputs[j + 3].value
                 }
             )
             j += 4;
@@ -123,11 +123,30 @@ function finalizarQuizz() {
     let enviarQuizz = axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes', conteudoInputs);
     enviarQuizz.then(envioOk);
     enviarQuizz.catch(envioErro);
+    const promessa = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes`);
+    promessa.then(atualizarQuizes);
+    function atualizarQuizes(resposta) {
+        arrayQuizes = resposta.data;
+    }
 
     console.log(conteudoInputs);
 }
-function envioOk() {
-    console.log("ok!");
+
+function envioOk(elemento) {
+    const novaTela = document.querySelector(".novo-quizz");
+    novaTela.innerHTML = `
+    <h1> Seu quizz está pronto!</h1>
+    <ul>
+    <li>
+    <div class="degrade" onclick="acessarQuiz()"  id=${elemento.data.id} ></div>
+    <img src = ${conteudoInputs.image}>
+    <span>${conteudoInputs.title}</span>
+    <li>
+    </ul>
+    <div class="proxima-tela" onclick="finalizarQuizz()">Finalizar Quizz</div>
+
+    `
+
 }
 function envioErro() {
     console.log("falhou!");
