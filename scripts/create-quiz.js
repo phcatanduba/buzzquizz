@@ -1,14 +1,14 @@
 let numeroPerguntas;
 let numeroNiveis;
-let valoresDigitados =[];
-const conteudoInputs ={
+let valoresDigitados = [];
+const conteudoInputs = {
     title: "",
     image: "",
     questions: [],
     levels: []
 }
 
-function criarQuizz(){
+function criarQuizz() {
     const novaTela = document.querySelector(".novo-quizz");
     const telaAntiga = document.querySelector(".criar-quizz");
     const quizzes = document.querySelector(".quizzes");
@@ -22,17 +22,17 @@ function criarPerguntas() {
     numeroNiveis = inputs[3].value
     numeroPerguntas = inputs[2].value
     novaTela.innerHTML = `<h1>Crie suas perguntas</h1>`
-    for (let i = 0; i < numeroPerguntas; i++){
-       let pergunta =`
+    for (let i = 0; i < numeroPerguntas; i++) {
+        let pergunta = `
             
             <div class="inputs">
-            <p>Pergunta ${i + 1}</p>
+            <p class="input-formulario">Pergunta ${i + 1}</p>
             <input type="text" placeholder="Texto da pergunta">
             <input type="text" placeholder="Cor de fundo da pergunta">
-            <p>Resposta correta</p>
+            <p class="input-formulario">Resposta correta</p>
             <input type="text" placeholder="Resposta correta">
             <input type="text" placeholder="URL da imagem">
-            <p>Respostas incorretas</p>
+            <p class="input-formulario">Respostas incorretas</p>
             <input type="text" placeholder="Resposta incorreta 1">
             <input type="text" placeholder="URL da imagem 1">
             <input type="text" placeholder="Resposta incorreta 2">
@@ -40,9 +40,9 @@ function criarPerguntas() {
             <input type="text" placeholder="Resposta incorreta 3">
             <input type="text" placeholder="URL da imagem 3">
             </div>`
-             
-             novaTela.innerHTML += pergunta
-}
+
+        novaTela.innerHTML += pergunta
+    }
     conteudoInputs.title = inputs[0].value;
     conteudoInputs.image = inputs[1].value;
     console.log(conteudoInputs);
@@ -51,12 +51,12 @@ function criarPerguntas() {
     `
 }
 
-function criarNiveis(){
+function criarNiveis() {
     const novaTela = document.querySelector(".novo-quizz");
     const inputs = document.querySelectorAll("input");
     novaTela.innerHTML = ` <h1>Agora, decida os níveis!</h1>`
-    for (let i = 0; i < numeroNiveis; i++){
-    let niveis  = `
+    for (let i = 0; i < numeroNiveis; i++) {
+        let niveis = `
        
         <div class="inputs">
         <p>Nível ${i + 1} </p>
@@ -66,69 +66,69 @@ function criarNiveis(){
         <input type="text" placeholder="Descrição do nível">
         </div>`
         novaTela.innerHTML += niveis;
-} 
-   for(let j = 0; j < inputs.length; j += 10){
-        for(let i = 0; i < numeroPerguntas; i++){
-             conteudoInputs.questions.push(
-            {
-                title: inputs[j].value,
-                color: inputs[j+1].value,
-                answers: [
-                    {
-                        text: inputs[j+2].value,
-                        image: inputs[j+3].value,
-                        isCorrectAnswer: true
-                    },
-                    {
-                        text: inputs[j+4].value,
-                        image: inputs[j+5].value,
-                        isCorrectAnswer: false
-                    },
-                    {
-                        text: inputs[j+6].value,
-                        image: inputs[j+7].value,
-                        isCorrectAnswer: false
-                    },
-                    {
-                        text: inputs[j+8].value,
-                        image: inputs[j+9].value,
-                        isCorrectAnswer: false
-                    }
-                ]
-            }
-            
-        )
-        j+= 10;
-        }
-       
     }
-        novaTela.innerHTML += `<div class="proxima-tela" onclick="finalizarQuizz()">Finalizar Quizz</div>`
+    for (let j = 0; j < inputs.length; j += 10) {
+        for (let i = 0; i < numeroPerguntas; i++) {
+            conteudoInputs.questions.push(
+                {
+                    title: inputs[j].value,
+                    color: inputs[j + 1].value,
+                    answers: [
+                        {
+                            text: inputs[j + 2].value,
+                            image: inputs[j + 3].value,
+                            isCorrectAnswer: true
+                        },
+                        {
+                            text: inputs[j + 4].value,
+                            image: inputs[j + 5].value,
+                            isCorrectAnswer: false
+                        },
+                        {
+                            text: inputs[j + 6].value,
+                            image: inputs[j + 7].value,
+                            isCorrectAnswer: false
+                        },
+                        {
+                            text: inputs[j + 8].value,
+                            image: inputs[j + 9].value,
+                            isCorrectAnswer: false
+                        }
+                    ]
+                }
+
+            )
+            j += 10;
+        }
+
+    }
+    novaTela.innerHTML += `<div class="proxima-tela" onclick="finalizarQuizz()">Finalizar Quizz</div>`
 }
-function finalizarQuizz(){
+function finalizarQuizz() {
     const inputs = document.querySelectorAll("input");
     valoresDigitados = [];
-    for(let j = 0; j < inputs.length; j += 4){
-    for (let i = 0; i < numeroNiveis ; i++){
-        conteudoInputs.levels.push(
-            {
-                title: inputs[j].value,
-                image:inputs[j+1].value,
-                text:inputs[j+2].value,
-                minValue: inputs[j+3].value
-            }
-        ) 
-        j += 4;
+    for (let j = 0; j < inputs.length; j += 4) {
+        for (let i = 0; i < numeroNiveis; i++) {
+            conteudoInputs.levels.push(
+                {
+                    title: inputs[j].value,
+                    image: inputs[j + 1].value,
+                    text: inputs[j + 2].value,
+                    minValue: inputs[j + 3].value
+                }
+            )
+            j += 4;
+        }
     }
-}
     let enviarQuizz = axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes', conteudoInputs);
     enviarQuizz.then(envioOk);
     enviarQuizz.catch(envioErro);
 
 
 }
-function envioOk(){
+function envioOk() {
     console.log("ok!");
 }
-function envioErro(){
+function envioErro() {
     console.log("falhou!");
 }

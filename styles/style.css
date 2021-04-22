@@ -112,7 +112,7 @@ main {
 .esconder{
     display: none;
 }
-p {
+.input-formulario {
     margin-top: 35px;
     font-weight: bold;
     font-size: 20px;
@@ -147,8 +147,6 @@ li span {
     font-size: 19px;
     bottom: 20px;
     left: 10px;
-<<<<<<< HEAD
-=======
     z-index: 3;
 }
 
@@ -228,9 +226,7 @@ li span {
     width: 150px;
     margin-top: 10px;
     font-size: 14px;
-    word-break: break-all;
->>>>>>> d10f2ad8ab9a856c092042350e21604b5202e542
-}
+    word-break: break-all;}
 
 .resposta-certa {
     color:green;
@@ -315,9 +311,6 @@ li span {
         margin: 12px;
         margin-left: 0px;
     }
-<<<<<<< HEAD
-}
-=======
 
     .topo-quiz span {
         color: white;
@@ -363,4 +356,3 @@ li span {
     }
 }
 
->>>>>>> d10f2ad8ab9a856c092042350e21604b5202e542
