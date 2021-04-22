@@ -124,7 +124,7 @@ function finalizarQuizz() {
     enviarQuizz.then(envioOk);
     enviarQuizz.catch(envioErro);
 
-
+    console.log(conteudoInputs);
 }
 function envioOk() {
     console.log("ok!");
