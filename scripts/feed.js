@@ -5,11 +5,11 @@ let listaDeID = [];
 
 listaJson.push(JSON.parse(listaGuardada));
 
-listaJson[0].forEach((element) => {
-    if (element !== null) {
-        listaDeID.push(element);
-    }
-});
-
-console.log(listaDeID);
-console.log(listaJson);
+if(listaJson.length >= 0) {
+    listaJson[0].forEach((element) => {
+        if (element !== null) {
+            listaDeID.push(element);
+        }
+    });
+    
+}
