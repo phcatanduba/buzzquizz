@@ -185,7 +185,6 @@ function envioOk(elemento) {
     </ul>
     <div class="proxima-tela" onclick="recarregarPagina()">Voltar pra home</div>
     <button class="voltar">Voltar pra home</button>
-
     `;
     const listaGuardada = localStorage.getItem('id');
     let listaPosts = [];
