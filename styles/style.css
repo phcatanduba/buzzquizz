@@ -71,6 +71,10 @@ main {
     margin: 30px auto 35px auto;
 }
 
+.quizzes p {
+    margin-left: 0;
+}
+
 .novo-quizz .inputs{
     background-color: #fff;
     width: 100vw;

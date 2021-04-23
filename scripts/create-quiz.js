@@ -138,7 +138,7 @@ function envioOk(elemento) {
     <h1> Seu quizz está pronto!</h1>
     <ul>
     <li>
-    <div class="degrade" onclick="acessarQuiz()"  id=${elemento.data.id} ></div>
+    <div class="degrade" onclick="acessarQuiz(event)"  id=${elemento.data.id} ></div>
     <img src = ${conteudoInputs.image}>
     <span>${conteudoInputs.title}</span>
     <li>
