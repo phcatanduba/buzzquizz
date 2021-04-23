@@ -17,8 +17,13 @@ function criarQuizz() {
     quizzes.classList.add("esconder");
 }
 function criarPerguntas() {
+   
     const novaTela = document.querySelector(".novo-quizz");
     const inputs = document.querySelectorAll("input");
+    if (inputs[0].value === "" ||inputs[1].value === "" || inputs[2].value  === ""|| inputs[3].value === ""){
+        alert("Insira informações válidas!");
+        return
+    } else {
     numeroNiveis = inputs[3].value
     numeroPerguntas = inputs[2].value
     novaTela.innerHTML = `<h1>Crie suas perguntas</h1>`
@@ -43,6 +48,7 @@ function criarPerguntas() {
 
         novaTela.innerHTML += pergunta
     }
+    
     conteudoInputs.title = inputs[0].value;
     conteudoInputs.image = inputs[1].value;
     console.log(conteudoInputs);
@@ -50,10 +56,20 @@ function criarPerguntas() {
     novaTela.innerHTML += `<div class="proxima-tela" onclick="criarNiveis()">Prosseguir pra criar níveis</div>
     `
 }
+}
 
-function criarNiveis() {
+function criarNiveis() {  
     const novaTela = document.querySelector(".novo-quizz");
     const inputs = document.querySelectorAll("input");
+    let a = 0;
+    inputs.forEach(inputs => {
+        if(inputs.value ===""){
+            a += 1;
+        }
+    });
+    if(a !== 0){
+        alert("Confira as respostas!");
+    }else{
     novaTela.innerHTML = ` <h1>Agora, decida os níveis!</h1>`
     for (let i = 0; i < numeroNiveis; i++) {
         let niveis = `
@@ -64,7 +80,7 @@ function criarNiveis() {
         <input type="text" placeholder="% de acerto mínima">
         <input type="text" placeholder="URL da imagem do nível">
         <input type="text" placeholder="Descrição do nível">
-        </div>`
+        </div>`;
         novaTela.innerHTML += niveis;
     }
     for (let j = 0; j < inputs.length; j += 10) {
@@ -104,9 +120,19 @@ function criarNiveis() {
     }
     novaTela.innerHTML += `<div class="proxima-tela" onclick="finalizarQuizz()">Finalizar Quizz</div>`
 }
+}
 function finalizarQuizz() {
     const inputs = document.querySelectorAll("input");
     valoresDigitados = [];
+    let a = 0;
+    inputs.forEach(inputs => {
+        if(inputs.value ===""){
+            a += 1;
+        }
+    });
+    if(a !== 0){
+        alert("Confira as respostas!");
+    }else{
     for (let j = 0; j < inputs.length; j += 4) {
         for (let i = 0; i < numeroNiveis; i++) {
             conteudoInputs.levels.push(
@@ -131,8 +157,14 @@ function finalizarQuizz() {
 
     console.log(conteudoInputs);
 }
+}
 
 function envioOk(elemento) {
+    const promessa = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes`);
+    promessa.then(atualizarQuizes);
+    function atualizarQuizes(resposta) {
+        arrayQuizes = resposta.data;
+    }
     const novaTela = document.querySelector(".novo-quizz");
     novaTela.innerHTML = `
     <h1> Seu quizz está pronto!</h1>
@@ -143,10 +175,17 @@ function envioOk(elemento) {
     <span>${conteudoInputs.title}</span>
     <li>
     </ul>
-    <div class="proxima-tela" onclick="finalizarQuizz()">Finalizar Quizz</div>
+    <div class="proxima-tela" onclick="recarregarPagina()">Voltar pra home</div>
+    <button class="voltar">Voltar pra home</button>
 
-    `
+    `;
+    const listaGuardada = localStorage.getItem("id");
+    let listaPosts = [];
+    listaPosts.push(JSON.parse(listaGuardada));
+    listaPosts.push(elemento.data.id);
 
+    const idTexto = JSON.stringify(listaPosts);
+    localStorage.setItem("id",idTexto);
 }
 function envioErro() {
     console.log("falhou!");
