@@ -18,6 +18,12 @@
         BuzzQuizz
     </header>
     <main>
+        <div class="titulo-butao esconder">
+            <p>Seus Quizzes</p>
+            <ion-icon name="add-circle-sharp" style="font-size: 15px; color: red;"onclick="criarQuizz()"></ion-icon>
+        </div>
+        <ul class="quizz-criado esconder">
+        </ul>
         <div class="criar-quizz">
             <div>Você não criou nenhum quizz ainda :(</div>
             <div onclick="criarQuizz()">Criar-quizz</div>
@@ -35,10 +41,11 @@
 
         <div class="quizzes">
             <p>Todos os Quizzes</p>
-            <ul>
+            <ul class="todos-quizzes">
             </ul>
         </div>
     </main>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="scripts/feed.js"></script>
     <script src="scripts/quiz.js"></script>

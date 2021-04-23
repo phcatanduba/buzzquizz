@@ -1,12 +1,12 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #FAFAFA;
+    background-color: #fafafa;
 }
 
 header {
     width: 100vw;
     height: 69px;
-    background-color: #EC362D;
+    background-color: #ec362d;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,19 +25,19 @@ main {
     flex-direction: column;
     align-items: center;
 }
-.criar-quizz{
+.criar-quizz {
     margin-top: 30px;
     width: 340px;
     height: 181px;
-    border: 1px dashed #D5D5D5;
+    border: 1px dashed #d5d5d5;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     text-align: center;
 }
-.criar-quizz div:first-child{
+.criar-quizz div:first-child {
     font-size: 20px;
     color: #b9b9b9;
     width: 250px;
@@ -45,29 +45,29 @@ main {
     display: flex;
     align-items: center;
 }
-.criar-quizz div:last-child{
+.criar-quizz div:last-child {
     font-size: 21px;
     width: 151px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #EC362D;
-    border: 1px dashed #EC362D;
+    color: #ec362d;
+    border: 1px dashed #ec362d;
     border-radius: 40px;
-
 }
-.novo-quizz{
+.novo-quizz {
     display: flex;
     flex-direction: column;
 }
-.novo-quizz h1 , p{
+.novo-quizz h1,
+p {
     font-size: 20px;
     margin: 20px 0 20px 10px;
-    font-family:'Roboto';
+    font-family: 'Roboto';
     font-weight: 700;
 }
-.novo-quizz h1{
+.novo-quizz h1 {
     margin: 30px auto 35px auto;
 }
 
@@ -75,7 +75,7 @@ main {
     margin-left: 0;
 }
 
-.novo-quizz .inputs{
+.novo-quizz .inputs {
     background-color: #fff;
     width: 100vw;
     display: flex;
@@ -84,22 +84,21 @@ main {
     align-items: center;
     padding: 20px 0 20px 0;
 }
-.novo-quizz input{
+.novo-quizz input {
     width: 80%;
     margin: 5px;
     padding: 12px 20px;
     border: 1px solid #d1d1d1;
     border-radius: 5px;
-    font-family:'Roboto',sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-style: italic;
-    font-size:19px;
-
+    font-size: 19px;
 }
-.proxima-tela{
+.proxima-tela {
     width: 323px;
     height: 54px;
-    background-color: #EC362D;
+    background-color: #ec362d;
     font-size: 18px;
     color: #fff;
     border-radius: 20px;
@@ -108,12 +107,12 @@ main {
     align-items: center;
     margin: 30px auto 0 auto;
 }
-.perguntas{
+.perguntas {
     background-color: #fff;
-    padding-bottom: 20px ;
+    padding-bottom: 20px;
     width: 100vw;
 }
-.esconder{
+.esconder {
     display: none;
 }
 .input-formulario {
@@ -122,7 +121,6 @@ main {
     font-size: 20px;
     width: 100%;
     margin-left: 15vw;
-
 }
 
 li {
@@ -134,7 +132,11 @@ li {
 }
 
 .degrade {
-    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0),
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.9)
+    );
     position: absolute;
     width: 100%;
     height: 100%;
@@ -232,10 +234,11 @@ li span {
     width: 150px;
     margin-top: 10px;
     font-size: 14px;
-    word-break: break-all;}
+    word-break: break-all;
+}
 
 .resposta-certa {
-    color:green;
+    color: green;
 }
 
 .resposta-errada {
@@ -249,11 +252,11 @@ li span {
 .butoes {
     display: flex;
     flex-direction: column;
-    margin-top: 40px
+    margin-top: 40px;
 }
 
 .reiniciar {
-    background-color: #EC362D;
+    background-color: #ec362d;
     width: 220px;
     height: 44px;
     font-size: 18px;
@@ -266,7 +269,7 @@ li span {
 }
 
 .voltar {
-    color: #BEBEBE;
+    color: #bebebe;
     background: none;
     border: none;
     outline: none;
@@ -295,6 +298,15 @@ li span {
 
 .texto-resultado {
     width: 340px;
+}
+
+.titulo-butao {
+    display: flex;
+    width: 360px;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    margin-top: 30px;
 }
 
 @media (min-width: 1100px) {
@@ -349,7 +361,7 @@ li span {
         display: flex;
         justify-content: space-between;
     }
-    
+
     .conteudo-resultado img {
         width: 364px;
         width: 273px;
@@ -361,4 +373,3 @@ li span {
         width: 360px;
     }
 }
-
