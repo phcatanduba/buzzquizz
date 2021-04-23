@@ -20,7 +20,7 @@ function criarPerguntas() {
    
     const novaTela = document.querySelector(".novo-quizz");
     const inputs = document.querySelectorAll("input");
-    if (inputs[0].value === "" ||inputs[1].value === "" || inputs[2].value  === ""|| inputs[3].value === ""){
+    if (inputs[0].value === "" ||inputs[1].value === "" || inputs[2].value  === ""|| inputs[3].value === ""|| Number(inputs[2].value) < 3 || Number(inputs[3].value) < 2){
         alert("Insira informações válidas!");
         return
     } else {
@@ -188,5 +188,5 @@ function envioOk(elemento) {
     localStorage.setItem("id",idTexto);
 }
 function envioErro() {
-    console.log("falhou!");
+    alert("ops, alguma informação está errada, refaça o quizz")
 }
