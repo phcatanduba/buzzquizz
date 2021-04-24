@@ -315,7 +315,8 @@ li span {
         height: 181px;
     }
 
-    .quizzes {
+    .quizzes,
+    .meus-quizzes {
         width: 70vw;
     }
 
