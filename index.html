@@ -18,12 +18,14 @@
         BuzzQuizz
     </header>
     <main>
-        <div class="titulo-botao esconder">
-            <p>Seus Quizzes</p>
-            <ion-icon name="add-circle-sharp" style="font-size: 15px; color: red;"onclick="criarQuizz()"></ion-icon>
+        <div class="quizzes">
+            <div class="titulo-botao esconder">
+                <p>Seus Quizzes</p>
+                <ion-icon name="add-circle-sharp" style="font-size: 34px; color: red;"onclick="criarQuizz()"></ion-icon>
+            </div>
+            <ul class="quizz-criado esconder">
+            </ul>
         </div>
-        <ul class="quizz-criado esconder">
-        </ul>
         <div class="criar-quizz">
             <div>Você não criou nenhum quizz ainda :(</div>
             <div onclick="criarQuizz()">Criar-quizz</div>
