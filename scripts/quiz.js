@@ -15,13 +15,32 @@ promessa.then(carregarQuizes);
 function carregarQuizes(resposta) {
     arrayQuizes = resposta.data;
 
+    if (listaDeID.length > 0) {
+        quizCriado.classList.remove('esconder');
+
+        document.querySelector('div.esconder').classList.remove('esconder');
+        document.querySelector('.criar-quizz').classList.add('esconder');
+
+        listaDeID.forEach((id, i) => {
+            const meusQuizzes = axios.get(
+                'https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes/' +
+                    id
+            );
+
+            meusQuizzes.then(carregarSeusQuizzes);
+        });
+    }
+
     arrayQuizes.forEach((quiz, index) => {
-        listaQuizz.innerHTML += `<li id=${quiz.id}>
+        if (quiz.id !== listaDeID[index]) {
+            listaQuizz.innerHTML += `<li id=${quiz.id}>
                                           <div class="degrade"></div>
                                           <img src=${quiz.image}>
                                           <span>${quiz.title}</span>
                                       </li>`;
+        }
     });
+
     quizesDaListas = document.querySelectorAll('li');
     quizesDaListas.forEach((quiz) => {
         quiz.addEventListener('click', acessarQuiz);
@@ -217,11 +236,11 @@ function carregarButoes(id) {
                                 <button class="voltar">Voltar pra home</button>
                           </div> `;
 
-    const butaoVoltar = document.querySelector('.voltar');
-    butaoVoltar.addEventListener('click', recarregarPagina);
+    const botaoVoltar = document.querySelector('.voltar');
+    botaoVoltar.addEventListener('click', recarregarPagina);
 
-    const butaoReiniciar = document.querySelector('.reiniciar');
-    butaoReiniciar.addEventListener('click', function () {
+    const botaoReiniciar = document.querySelector('.reiniciar');
+    botaoReiniciar.addEventListener('click', function () {
         reiniciarQuiz(id);
     });
 }
@@ -257,8 +276,8 @@ function carregarSeusQuizzes(resposta) {
                                 <span>${resposta.data.title}</span>
                             </li>`;
 
-    quizesDaListas = document.querySelectorAll('li');
-    quizesDaListas.forEach((quiz) => {
+    let meuQuizesDaListas = document.querySelectorAll('.quizz-criado li');
+    meuQuizesDaListas.forEach((quiz) => {
         quiz.addEventListener('click', function () {
             meuQuiz = resposta.data;
             acessarSeusQuizzes(resposta.data);
@@ -274,4 +293,133 @@ function reiniciarQuiz(id) {
     } else {
         acessarSeusQuizzes(meuQuiz);
     }
+}
+
+function acessarSeusQuizzes(quizEscolhido) {
+    conteudo.innerHTML = `  <div class="topo-quiz" style="background: url(${quizEscolhido.image})">
+                              <div class="degrade"></div>
+                              <span>${quizEscolhido.title}</span>
+                          </div>`;
+
+    document.querySelector('.topo-quiz').scrollIntoView('false');
+
+    for (let i = 0; i < quizEscolhido.questions.length; i++) {
+        quizEscolhido.questions[i].answers.sort(() => 0.5 - Math.random());
+
+        if (quizEscolhido.questions[i].answers.length === 4) {
+            conteudo.innerHTML += ` 
+          <div class="quiz" id="pergunta${i}">
+              <div class="titulo" style="background-color: ${quizEscolhido.questions[i].color}">
+                  <span>${quizEscolhido.questions[i].title}</span>
+              </div>
+              <div class="respostas">
+                  <div>
+                      <span class="resposta">
+                          <img src=${quizEscolhido.questions[i].answers[0].image}>
+                          <p>${quizEscolhido.questions[i].answers[0].text}</p>
+                      </span>
+                      <span class="resposta">
+                          <img src=${quizEscolhido.questions[i].answers[1].image}>
+                          <p>${quizEscolhido.questions[i].answers[1].text}</p>
+                      </span>
+                  </div>
+              <div>
+                  <span class="resposta">
+                      <img src=${quizEscolhido.questions[i].answers[2].image}>
+                      <p>${quizEscolhido.questions[i].answers[2].text}</p>
+                  </span>
+                  <span class="resposta">
+                      <img src=${quizEscolhido.questions[i].answers[3].image}>
+                      <p>${quizEscolhido.questions[i].answers[3].text}</p>
+                  </span>
+              </div>
+          <div>    `;
+        } else if (quizEscolhido.questions[i].answers.length === 3) {
+            conteudo.innerHTML += ` 
+          <div class="quiz" id="pergunta${i}">
+              <div class="titulo" style="background-color: ${quizEscolhido.questions[i].color}">
+                  <span>${quizEscolhido.questions[i].title}</span>
+              </div>
+              <div class="respostas">
+                  <div>
+                      <span class="resposta">
+                          <img src=${quizEscolhido.questions[i].answers[0].image}>
+                          <p>${quizEscolhido.questions[i].answers[0].text}</p>
+                      </span>
+                      <span class="resposta">
+                          <img src=${quizEscolhido.questions[i].answers[1].image}>
+                          <p>${quizEscolhido.questions[i].answers[1].text}</p>
+                      </span>
+                  </div>
+              <div>
+                  <span class="resposta">
+                      <img src=${quizEscolhido.questions[i].answers[2].image}>
+                      <p>${quizEscolhido.questions[i].answers[2].text}</p>
+                  </span>
+              </div>
+          <div>    `;
+        } else if (quizEscolhido.questions[i].answers.length === 2) {
+            conteudo.innerHTML += ` 
+          <div class="quiz" id="pergunta${i}">
+                  <div class="titulo" style="background-color: ${quizEscolhido.questions[i].color}">
+                      <span>${quizEscolhido.questions[i].title}</span>
+                  </div>
+              <div class="respostas">
+              <div>
+                  <span class="resposta">
+                      <img src=${quizEscolhido.questions[i].answers[0].image}>
+                      <p>${quizEscolhido.questions[i].answers[0].text}</p>
+                  </span>
+                  <span class="resposta">
+                      <img src=${quizEscolhido.questions[i].answers[1].image}>
+                      <p>${quizEscolhido.questions[i].answers[1].text}</p>
+                  </span>
+              </div>
+          <div>    `;
+        }
+    }
+
+    conteudo.innerHTML += `<div class="resultado"></div>`;
+
+    carregarButoes('meus');
+
+    let qtdDeRespostasDadas = 0;
+    chamaSelecionaRespostaCorreta = function (event) {
+        qtdDeRespostasDadas++;
+        selecionaRespostaCorreta(event, quizEscolhido);
+        const idDaPergunta = event.currentTarget.parentNode.parentNode.parentNode.getAttribute(
+            'id'
+        );
+        setTimeout(function () {
+            proximaPergunta(idDaPergunta);
+        }, 2000);
+    };
+
+    function proximaPergunta(idDaPerguntaAtual) {
+        let numeroDaPergunta = parseInt(
+            idDaPerguntaAtual[idDaPerguntaAtual.length - 1]
+        );
+        let idDaProximaPergunta = idDaPerguntaAtual.slice(
+            0,
+            idDaPerguntaAtual.length - 1
+        );
+        if (quizEscolhido.questions.length - 1 > numeroDaPergunta) {
+            numeroDaPergunta++;
+            idDaProximaPergunta += numeroDaPergunta;
+
+            document
+                .querySelector(`#${idDaProximaPergunta}`)
+                .scrollIntoView(false);
+        } else {
+            if (qtdDeRespostasDadas === quizEscolhido.questions.length) {
+                carregaResultado(quizEscolhido);
+            }
+            document.querySelector('button').scrollIntoView();
+        }
+    }
+
+    const todasAsRespostas = document.querySelectorAll('.resposta');
+    todasAsRespostas.forEach((resposta) => {
+        resposta.addEventListener('click', chamaSelecionaRespostaCorreta);
+    });
 }

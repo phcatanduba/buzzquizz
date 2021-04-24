@@ -113,7 +113,7 @@ p {
     width: 100vw;
 }
 .esconder {
-    display: none;
+    display: none !important;
 }
 .input-formulario {
     margin-top: 35px;
@@ -300,7 +300,7 @@ li span {
     width: 340px;
 }
 
-.titulo-butao {
+.titulo-botao {
     display: flex;
     width: 360px;
     justify-content: space-between;

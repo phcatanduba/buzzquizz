@@ -15,7 +15,8 @@ function criarQuizz() {
     novaTela.classList.remove('esconder');
     telaAntiga.classList.add('esconder');
     quizzes.classList.add('esconder');
-    document.querySelector('div.esconder').classList.add('esconder');
+    document.querySelector('div.titulo-botao').classList.add('esconder');
+    quizCriado.classList.add('esconder');
 }
 function criarPerguntas() {
     const novaTela = document.querySelector('.novo-quizz');
